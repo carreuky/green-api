@@ -6,7 +6,7 @@ from rest_framework.response import Response
 
 # Create your views here.
 
-class HerbalList(APIView):
+class herbal_list(APIView):
     def get(self,request):
         herbals = Herbal.objects.all()
         serializer= HerbalSerializer(herbals,many = True)

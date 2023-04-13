@@ -5,3 +5,6 @@ class HerbalSerializer(serializers.Serializer):
     class Meta:
         model= Herbal
         field ='__all__'
+
+    def create(self, validated_data):
+        return Herbal.objects.create(**validated_data)

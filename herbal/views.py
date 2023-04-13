@@ -16,10 +16,12 @@ class herbal_list(APIView):
 class herbal_create(APIView):
     def post(self,request):
         serializer = HerbalSerializer(data=request.data)
-        serializer.is_valid()
-        serializer.save()
-        Response(serializer.data)
-
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
 class herbal_each(APIView):
     def get_herbal_by_id(self,pk):
         try:

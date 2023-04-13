@@ -4,4 +4,4 @@ from herbal.models import Herbal
 class HerbalSerializer(serializers.Serializer):
     class Meta:
         model= Herbal
-        field ="__all__"
+        field ='__all__'
